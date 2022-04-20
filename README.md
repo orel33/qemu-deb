@@ -61,7 +61,7 @@ Then, one can update `debian/control` as follows:
 sudo ./debian/rules debian/control
 ```
 
-### Rebuild and Install
+### Rebuild
 
 Then, rebuild the package...
 
@@ -70,10 +70,14 @@ cd qemu-6.2+dfsg/
 sudo debuild -us -uc
 ```
 
-Then, the build log are available in `qemu_6.2+dfsg-2ubuntu6_amd64.build`.
+Be patient, it is really really long...
 
 **Nota Bene** : The `-us -uc` options avoid the signature step in the build
 process...
+
+The build log are available in `qemu_6.2+dfsg-2ubuntu6_amd64.build`.
+
+### Install
 
 Remove former *qemu* packages already installed, and then install our new
 packages as follows:
@@ -85,6 +89,8 @@ sudo dpkg -i qemu-system-x86_6.2+dfsg-2ubuntu6_amd64.deb     \
              qemu-utils_6.2+dfsg-2ubuntu6_amd64.deb          \
              qemu-system-gui_6.2+dfsg-2ubuntu6_amd64.deb
 ```
+
+And it works!
 
 ## Documentation
 
