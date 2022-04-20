@@ -72,20 +72,25 @@ sudo debuild -us -uc
 
 Then, the build log are available in `qemu_6.2+dfsg-2ubuntu6_amd64.build`.
 
-
 **Nota Bene** : The `-us -uc` options avoid the signature step in the build
 process...
 
-And install it...
+Remove former *qemu* packages already installed, and then install our new
+packages as follows:
 
 ```bash
-sudo dpkg -i qemu_6.2+dfsg-2ubuntu6_amd64.deb
+sudo dpkg -i qemu-system-x86_6.2+dfsg-2ubuntu6_amd64.deb     \
+             qemu-system-common_6.2+dfsg-2ubuntu6_amd64.deb  \
+             qemu-system-data_6.2+dfsg-2ubuntu6_all.deb      \
+             qemu-utils_6.2+dfsg-2ubuntu6_amd64.deb          \
+             qemu-system-gui_6.2+dfsg-2ubuntu6_amd64.deb
 ```
 
 ## Documentation
 
-* <https://raphaelhertzog.com/2010/12/15/howto-to-rebuild-debian-packages/>
 * <https://wiki.debian.org/BuildingTutorial>
+* <https://raphaelhertzog.com/2010/12/15/howto-to-rebuild-debian-packages/>
+* <https://www.ducea.com/2008/03/06/howto-recompile-debian-packages/>
 
 ---
 aurelien.esnard@u-bordeaux.fr
