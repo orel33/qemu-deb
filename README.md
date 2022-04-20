@@ -36,10 +36,26 @@ Get build dependencies.
 sudo apt-get build-dep qemu-system-x86
 ```
 
-### Do whatever changes you need
+### Enable VDE support for Qemu
 
 Here, we just want to add the `--enable-vde` option to the *configure* command
-line in file the `debian/rules`. Visit the last section to see how to fix that.
+line called by the `debian/rules` script.
+
+In practice, the package dependencies are listed in the `debian/control` file,
+with some comments to specify (system-specific) arguments to qemu's configure
+script (as for instance `# --enable-xxx`).
+
+In our case, we just need to remove he `:debian:` prefix from the template file
+`debian/control-in` in the following lines:
+
+```
+# vde is debian-only since ubuntu/vde2 is in universe
+:debian:# --enable-vde
+:debian: libvdeplug-dev,
+```
+
+Then, one can update `debian/control` file by launching the `./debian/rules`
+script.
 
 ### Rebuild and Install
 
@@ -60,32 +76,6 @@ And install it...
 
 ```bash
 sudo dpkg -i qemu_6.2+dfsg-2ubuntu6_amd64.deb
-```
-
-## Fix VDE Support for Qemu
-
-*In french only.*
-
-Dans notre cas, il faut remarquer que le fichier `debian/rules` utilise un
-script de la forme `./extract-config-opts amd64 control` pour extraire la liste
-des options `--enable-xxx` à partir du fichier `debian/control` qui contrôle les
-dépendances en fonction de l'architecture visée... En pratique, il faut recopier
-les lignes suivantes du fichier `debian/control-in` dans le fichier
-`debian/control` en prenant soin d'enlever le préfixe `:debian:`.
-
-```
-# vde is debian-only since ubuntu/vde2 is in universe
-:debian:# --enable-vde
-:debian: libvdeplug-dev,
-```
-
-Et donc, il faut rajouter dans le fichier `debian/control`, les lignes suivantes
-:
-
-```
-# vde is debian-only since ubuntu/vde2 is in universe
-# --enable-vde
- libvdeplug-dev,
 ```
 
 ## Documentation
