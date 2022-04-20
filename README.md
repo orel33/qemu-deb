@@ -55,8 +55,11 @@ In our case, we just need to remove he `:debian:` prefix from the template file
 :debian: libvdeplug-dev,
 ```
 
-Then, one can update `debian/control` file by launching the `./debian/rules`
-script.
+Then, one can update `debian/control` as follows:
+
+```bash
+sudo ./debian/rules debian/control
+```
 
 ### Rebuild and Install
 
