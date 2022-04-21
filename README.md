@@ -79,16 +79,16 @@ The build log are available in `qemu_6.2+dfsg-2ubuntu6_amd64.build`.
 
 ### Install
 
-Remove former *qemu* packages already installed, and then install our new
-packages as follows:
+Check you have already installed the *official* qemu package
+(`qemu-system-x86`), then update this with the new generated packages as follows:
 
 ```bash
-sudo dpkg -i qemu-system-x86_6.2+dfsg-2ubuntu6_amd64.deb     \
-             qemu-system-common_6.2+dfsg-2ubuntu6_amd64.deb  \
-             qemu-system-data_6.2+dfsg-2ubuntu6_all.deb      \
-             qemu-utils_6.2+dfsg-2ubuntu6_amd64.deb          \
-             qemu-system-gui_6.2+dfsg-2ubuntu6_amd64.deb
+sudo apt install qemu-system-x86
+sudo dpkg -iO *.deb
 ```
+
+**Nota Bene** : The `-O` option stands for `--selected-only`. Only process the
+packages that are already installed.
 
 And it works!
 
@@ -97,6 +97,10 @@ And it works!
 * <https://wiki.debian.org/BuildingTutorial>
 * <https://raphaelhertzog.com/2010/12/15/howto-to-rebuild-debian-packages/>
 * <https://www.ducea.com/2008/03/06/howto-recompile-debian-packages/>
+
+## Appendix
+
+
 
 ---
 aurelien.esnard@u-bordeaux.fr
