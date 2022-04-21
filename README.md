@@ -98,9 +98,5 @@ And it works!
 * <https://raphaelhertzog.com/2010/12/15/howto-to-rebuild-debian-packages/>
 * <https://www.ducea.com/2008/03/06/howto-recompile-debian-packages/>
 
-## Appendix
-
-
-
 ---
 aurelien.esnard@u-bordeaux.fr

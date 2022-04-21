@@ -1,4 +1,2 @@
-qemu-6.2*
-qemu_6.2*
-*.deb
-*.ddeb
+debs/
+src/
