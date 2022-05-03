@@ -1,4 +1,4 @@
-# Rebuild Qemu Debian Package
+# Rebuild Qemu Package for Ubuntu
 
 Recent Ubuntu 20/22 provides their *Qemu* package without VDE Support for
 obscure reasons (*vde is debian-only since ubuntu/vde2 is in universe*). So to
