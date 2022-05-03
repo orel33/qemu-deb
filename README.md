@@ -90,7 +90,26 @@ sudo dpkg -iO *.deb
 **Nota Bene** : The `-O` option stands for `--selected-only`. Only process the
 packages that are already installed.
 
-And it works!
+Finally, if you want to prevent the package from being automatically installed,
+upgraded or removed, you must set this package *hold*, as follows:
+
+```bash
+sudo apt-mark hold qemu-system-x86
+```
+
+### And it works
+
+```bash
+$ qemu-system-x86_64 -version
+QEMU emulator version 6.2.0 (Debian 1:6.2+dfsg-2ubuntu6)
+Copyright (c) 2003-2021 Fabrice Bellard and the QEMU Project developers
+
+$ qemu-system-x86_64 -netdev help
+Available netdev backend types:
+...
+vde
+...
+```
 
 ## Documentation
 
